@@ -47,7 +47,7 @@ if reponse <= 0:
     time.sleep(3)
     quit()
 
-with open('ressources/ip_temp.txt', 'w') as f:
+with open('ip_temp.txt', 'w') as f:
     f.write(ip)
 
 clear()
