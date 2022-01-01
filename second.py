@@ -7,7 +7,7 @@ from pyfiglet import *
 import sys
 import time
 
-with open("ressources/ip_temp.txt") as f:
+with open("ip_temp.txt") as f:
     ip = f.readlines()[0]
 
 def serverchecker():
@@ -21,8 +21,8 @@ def serverchecker():
         pass
     try:
         print(Fore.GREEN + ipduserveur + ' Joueurs connectés : {0}. Ping : {1}.'.format(status.players.online, status.latency))
-        os.system('mcstatus ' + ipduserveur + ' status > ressources/server_temp.txt')
-        with open("ressources/server_temp.txt") as f:
+        os.system('mcstatus ' + ipduserveur + ' status > server_temp.txt')
+        with open("server_temp.txt") as f:
             servertempfiles = f.readlines()[0]
         with open('server-list.txt', 'a') as f:
             f.write(ipduserveur + ' Joueurs connectés : {0}. Ping : {1}. '.format(status.players.online, status.latency) + servertempfiles + "\n")
