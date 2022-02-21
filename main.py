@@ -1,60 +1,55 @@
-from random import *
-from colorama import Fore, Back, Style
-from os import startfile, system, name, write
-import subprocess
-from mcstatus import MinecraftServer 
-from pyfiglet import *
-import sys
-import time
+from colorama import Fore
+from os import system
 
 # Clear
 
+
 def clear():
-    if name == 'nt':
-        _ = system('cls')
+    system('cls')
 
-clear()
 
-print(figlet_format("Strecurat \n"))
+# ASCII
+figlet = Fore.LIGHTYELLOW_EX + """
+  _________ __                                             __   
+ /   _____//  |________   ____   ____  __ ______________ _/  |_ 
+ *_____  **   __*_  __ *_/ __ *_/ ___*|  |  *_  __ *__  **   __*
+ /        *|  |  |  | */*  ___/*  *___|  |  /|  | *// __ *|  |  
+/_______  /|__|  |__|    *___  >*___  >____/ |__|  (____  /__|  
+        */                   */     */                  */      
+"""
+print(figlet.replace("*", chr(92)))
 
-print(Fore.WHITE + "1.Recherche" + Fore.BLUE + " EU" + Fore.WHITE + "   2.Recherche" + Fore.LIGHTRED_EX + " US \n" + Fore.WHITE)
+print(Fore.WHITE + "1.EU" + Fore.BLUE + " Search" + Fore.WHITE +
+      "   2.US" + Fore.LIGHTRED_EX + " Search \n" + Fore.WHITE)
 
-try:
-    reponse = int(input())
-except:
-    print(Fore.RED + "Le choix doit être un chiffre !")
-    print(Fore.RED + "Le programme va quitter dans 3 secondes")
-    time.sleep(3)
-    quit()
+while True:
+    try:
+        reponse = int(input())
+        if reponse == 1:
+            ip = "3.124.142.205"
+            break
 
-if reponse == 1:
-    ip = "3.124.142.205"
-
-if reponse == 2:
-    ip = "3.134.125.175"
-
-# Réponses invalides
-
-if reponse >= 3:
-    print(Fore.RED + "Erreur ! : Le chiffre doit être 1 ou 2")
-    print(Fore.RED + "Le programme va quitter dans 3 secondes")
-    time.sleep(3)
-    quit()
-
-if reponse <= 0:
-    print(Fore.RED + "Erreur ! : Le chiffre doit être 1 ou 2")
-    print(Fore.RED + "Le programme va quitter dans 3 secondes")
-    time.sleep(3)
-    quit()
+        elif reponse == 2:
+            ip = "3.134.125.175"
+            break
+        else:
+            print(Fore.RED + "You need to do a choice between 1 and 2 !" + Fore.WHITE)
+    except:
+        print(Fore.RED + "This is not a number !" + Fore.WHITE)
 
 with open('ip_temp.txt', 'w') as f:
     f.write(ip)
 
 clear()
 
-print(Fore.YELLOW + "Combien de fenêtres de recherche voulez vous ouvrir ?")
+print(Fore.YELLOW + "How many server search windows do you want to open ? (more windows = faster)" + Fore.WHITE)
 
-fenetres = int(input())
+while True:
+    try:
+        fenetres = int(input())
+        break
+    except:
+        print(Fore.RED + "This is not a number !" + Fore.WHITE)
 
 for i in range(fenetres):
-    os.system('start loop.cmd')
+    system('start loop.bat')

@@ -1,3 +1,0 @@
-version: v1.18.1 (protocol 757)
-description: "A Minecraft Server"
-players: 4/6 ['Jack122 (9c9184c4-e8c7-4158-8460-7c8cd5c6ee6b)', 'ApolloKun (9dbc6b10-a571-4a34-925d-3dc7efa94f3a)', 'verweiss (44427052-9834-4a9a-a484-83cda269a643)', 'nazza_zocker (fd19f539-1dcb-4047-85da-a091126bcd74)']
