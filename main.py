@@ -1,8 +1,7 @@
-from colorama import Fore
+from colorama import Fore, init
 from os import system
 
-# Clear
-
+init()
 
 def clear():
     system('cls')
